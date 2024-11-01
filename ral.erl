@@ -238,9 +238,7 @@ cons(V, []) ->
 % Constructs RAL from standard list.
 % O(n) - (Note: it performs list reversion internally)
 from_list(NormalList) ->
-	lists:foldl(fun(V, RAL) ->
-		cons(V, RAL)
-	end, empty(), lists:reverse(NormalList)).
+	from_list_reversed(lists:reverse(NormalList)).
 
 %
 % Constructs RAL from standard list but in reversed order.
